@@ -4,16 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" href="../static/styles.css">
-    <title>Your Page Title</title>
+    <title>Counter</title>
 </head>
 <body>
-	<h1>Now we're in a template!</h1>
-	<p>I can edit my page!</p>
-	<form action="/submit" method="post">
- 		<label for="namefield">Name:</label>
- 		<input type="text" id="namefield" name="name">
- 		<label for="agefield">Age:</label>
-		<input type="number" id="agefield" name="age">
-		<input type="submit" value="Submit">
-	</form>
+	<header>
+		<h1>Word counter</h1>
+		<p>Provide a passage of text, and we'll run some analysis for you!</p>
+	</header>
+	<main>
+		<div class="toprow">
+			<h2>Please provide a text passage</h2>
+			<button id="load-example">Load example</button>
+		</div>
+		<form action ="/analyse" method="post" spellcheck = "false">
+			<textarea class="text-input" placeholder="Paste in your text here" name="textcontent"></textarea>
+			<h2>Select criteria to count</h2>
+			<div class="property-inputs">
+				<label for="words">
+					<input type="checkbox" checked id = "words" name="properties" value="words">
+					Words
+				</label>
+				<label for="sentences">
+					<input type="checkbox" checked id = "sentences" name="properties" value="sentences">
+					Sentences
+				</label>
+				<label for="characters">
+					<input type="checkbox" checked id = "characters" name="properties" value="characters">
+					Characters
+				</label>
+			</div>
+			<button type="submit" class="btn submit">Submit</button>
+		</form>
+	</main>
+	<footer>
+		&copy; Palmwi2010 as part of Software Systems Engineering.
+	</footer>
+	<script>
+		const loadExample = document.querySelector("#load-example");
+		const textForm = document.querySelector(".text-input");
+		loadExample.addEventListener('click', () => {
+			textForm.value = 
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+		});
+	</script>
 </body>

@@ -1,3 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+
 * {
-color: red;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Roboto';
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+header, footer {
+	flex: 0;
+}
+
+header {
+	background: linear-gradient(#1a2e05, #3f6212);
+	padding: 30px 0px;
+}
+
+header * {
+	color: white;
+	text-align: center;
+}
+
+h1 {
+	font-size: 48px;
+	text-shadow: 2px 2px 10px black;
+	font-family: 'Limelight';
+}
+
+header p {
+	color: white;
+	font-size: 20px;
+	font-style: italic;
+	margin-top:10px;
+}
+
+main {
+	width: 800px;
+	padding: 40px;
+	flex-grow: 1;
+	margin: 30px auto;
+}
+
+.toprow {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+#load-example {
+	color: blue;
+	text-decoration: none;
+	background-color:transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 0;
+	height: fit-content;
+	font-weight: 500;
+	font-size: 16px;
+}
+
+main textarea {
+	height: 100px;
+	width: 100%;
+	border-radius: 10px;
+	padding: 1ch;
+	color: black;
+	font-size: 14px;
+	font-family: "Special Elite";
+	line-height: 1.5em;
+	margin-top: 12px;
+}
+
+main h2 {
+	margin-top: 20px;
+}
+
+.property-inputs {
+	padding: 8px 0px;
+}
+
+.property-inputs label {
+	padding-right: 20px;	
+}
+
+.btn {
+	padding: 8px 16px;
+	border-radius: 10px;
+	background-color: #15803d;
+	color: white;
+	cursor: pointer;
+	font-size: 16px;
+	transition: transform 0.15s ease-in;
+	font-weight: 700;
+	border: none;
+	outline: none;
+	margin: 40px auto;
+	display: block;
+	text-decoration: none;
+	width: fit-content;
+}
+
+.btn:hover {
+	transform: scale(1.1);
+}
+
+.quote-text {
+	background-color: #f1f5f9;
+	padding: 16px;
+	font-family: 'Special Elite';
+	font-size: 14px;
+	margin-top: 16px;
+	line-height: 1.5rem;
+}
+
+main p {
+	margin-top: 8px;
+}
+
+.result {
+	display: flex;
+	align-items: bottom;
+	padding: 4px 0 6px;
+}
+
+.result-label {
+	width: 150px;
+	font-weight: 700;
+	font-size: 18px;
+}
+
+.number {
+	background-color: #d1d5db;
+	color: #b91c1c;
+	border: 2px solid black;
+	padding: 1px 4px;
+	font-size: 18px;
+	font-family: "Oxanium";
+	font-weight: 700;
+	line-height:20px;
+}
+
+footer {
+	width:100%;
+	padding: 8px;
+	text-align: center;
+	font-size: 12px;
+	color: white;
+	background-color: black;
 }

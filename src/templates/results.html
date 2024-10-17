@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="../static/styles.css">
+    <title>Counter</title>
+</head>
+<body>
+	<header>
+		<h1>Word counter</h1>
+	</header>
+	<main>
+		<h2>Text summary</h2>
+		<p>You provided the following text:</p>
+		<p class="quote-text">{{text}}</p>
+		<h2>Output metrics</h2>
+			<div class="property_outputs">
+				{% if n_sentences %}
+				<div class = "result">
+					<p class="result-label">Sentences</p>
+					<p class="number">{{n_sentences}}</p>
+				</div>
+				{% endif %}
+				{% if n_words %}
+				<div class = "result">
+					<p class="result-label">Words</p>
+					<p class="number">{{n_words}}</p>
+				</div>
+				{% endif %}
+				{% if n_chars %}
+				<div class = "result">
+					<p class="result-label">Characters</p>
+					<p class="number">{{n_chars}}</p>
+				</div>
+				{% endif %}
+		</div>
+		<a href="/" class="btn return">Analyse another text</a>		
+	</main>
+	<footer>
+		&copy; Palmwi2010 as part of Software Systems Engineering.
+	</footer>
+</body>
