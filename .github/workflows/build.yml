@@ -15,8 +15,17 @@ jobs:
       - name: Run flake8
         run: flake8 .
 
-  deploy-to-impaas:
+  build:
     needs: python-formatting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install flask
+        run: pip install flask
+      - name: Install pytest
+        run: pip install pytest
+
+  deploy-to-impaas:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
