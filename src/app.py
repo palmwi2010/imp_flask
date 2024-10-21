@@ -2,11 +2,13 @@ from flask import Flask, render_template, request
 from src.utils import Analyzer
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello_world():
     return render_template("index.html")
 
-@app.route("/analyse", methods = ["POST"])
+
+@app.route("/analyse", methods=["POST"])
 def analyse():
     input_text = request.form.get("textcontent")
     input_checkboxes = request.form.getlist("properties")
@@ -22,4 +24,5 @@ def analyse():
     if 'sentences' in input_checkboxes:
         num_sentences = Analyzer.count_sentences(input_text)
 
-    return render_template("results.html", text = input_text, n_words = num_words, n_chars = num_characters, n_sentences = num_sentences)
+    return render_template("results.html", text=input_text, n_words=num_words,
+                           n_chars=num_characters, n_sentences=num_sentences)
