@@ -15,7 +15,7 @@ def analyse():
 
     num_sentences, num_words, num_characters = None, None, None
 
-    if 'words' in input_checkboxes:
+    if 'words' in input_checkboxes:     
         num_words = Analyzer.count_words(input_text)
 
     if 'characters' in input_checkboxes:
