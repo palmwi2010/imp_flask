@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from src.utils import Analyzer
+from utils import Analyzer
 app = Flask(__name__)
 
 
@@ -26,3 +26,8 @@ def analyse():
 
     return render_template("results.html", text=input_text, n_words=num_words,
                            n_chars=num_characters, n_sentences=num_sentences)
+
+def process_query(input):
+    if input == "dinosaurs":
+        return "Dinosaurs ruled the Earth 200 million years ago"
+    return "Unknown"
