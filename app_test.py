@@ -35,5 +35,13 @@ def test_square_checking():
 def test_minus():
     assert process_query("What is 14 minus 31?") == "-17"
 
+
 def test_prime():
     assert process_query("Which of the followiung numbers are primes: 7, 10, 11, 19?") == "7, 11, 19"
+
+
+def test_prime_one():
+    assert process_query("Which of the followiung numbers are primes: 7, 10, 12, 18?") == "7"
+
+def test_power():
+    assert process_query("What is 2 to the power of 3?") == "8"

@@ -84,6 +84,13 @@ def find_primes(input: str):
     return ', '.join(output)
 
 
+def power_of(input: str):
+    input = input.split()
+    words = [input[2], input[-1][:-1]]
+    numbers = [int(x) for x in words]
+    return str(numbers[0] ** numbers[1])
+
+
 def process_query(input):
     if input == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
@@ -101,6 +108,8 @@ def process_query(input):
         return minus_from_string(input)
     if "prime" in input:
         return find_primes(input)
+    if "power" in input:
+        return power_of(input)
     return "Unknown"
 
 
