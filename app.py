@@ -56,7 +56,7 @@ def find_square_and_cube(input: str):
         #print(round(math.cbrt(num)) == math.cbrt(num))
         #print("next")
 
-        if round(math.sqrt(num)) == math.sqrt(num) and round(math.cbrt(num)) == math.cbrt(num):
+        if round(num ** (1/6)) == num ** (1/6):
             return str(num)
 
 

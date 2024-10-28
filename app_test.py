@@ -29,6 +29,6 @@ def test_multiplying_numbers():
     
 
 def test_square_checking():
-    assert process_query("Which of the following numbers is both a square and a cube: 1268, 512, 729, 3199, 1730, 196, 3886, 64?") == "64"
+    assert process_query("Which of the following numbers is both a square and a cube: 1268, 512, 729, 3199, 1730, 196, 3886?") == "729"
 
 process_query("Which of the following numbers is both a square and a cube: 1268, 512, 729, 3199, 1730, 196, 3886?")
