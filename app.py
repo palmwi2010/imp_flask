@@ -37,7 +37,6 @@ def add_from_string(input: str):
 def find_largest_from_string(input: str):
     words = input.split()
     numbers = [int(words[8][:-1]), int(words[9][:-1]), int(words[10][:-1])]
-    
     return str(max(numbers))
 
 
