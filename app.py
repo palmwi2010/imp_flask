@@ -59,6 +59,25 @@ def find_square_and_cube(input: str):
     for num in numbers:
         if round(num ** (1/6)) == num ** (1/6):
             return str(num)
+        
+
+def isprime(num):
+    for i in range(2,math.floor(math.sqrt(num))):
+        if round(num/i) == num/i:
+            return False
+    return True
+
+
+def find_primes(input: str):
+    words = input.split()[7:]
+    numbers = [int(x[:-1]) for x in words]
+
+    output = []
+    for num in numbers:
+        if isprime(num):
+            output.append(str(num))
+    
+    return ','.join(output)
 
 
 def process_query(input):
@@ -76,6 +95,8 @@ def process_query(input):
         return find_square_and_cube(input)
     if " minus " in input:
         return minus_from_string(input)
+    if "prime" in input:
+        return find_primes(input)
     return "Unknown"
 
 
