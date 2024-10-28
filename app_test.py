@@ -17,10 +17,9 @@ def test_knows_name():
 
 
 def test_largest_numbers():
-    assert process_query(
-        "Which of the following numbers is the largest: 26, 36, 75?"
-        ) == "75"
+    assert process_query("Which of the following numbers is the largest: 26, 36, 75?") == "75"
 
 
 def test_adding_numbers():
     assert process_query("What is 8 plus 64?") == "72"
+    
