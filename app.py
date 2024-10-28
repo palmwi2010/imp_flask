@@ -29,7 +29,9 @@ def analyse():
 
 
 def add_from_string(input: str):
-    return 1
+    words = input.split()
+    numbers = [int(words[2]), int(words[4][:-1])]
+    return str(numbers[0] + numbers[1])
 
 
 def find_largest_from_string(input: str):
