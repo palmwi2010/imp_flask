@@ -40,6 +40,12 @@ def find_largest_from_string(input: str):
     return str(max(numbers))
 
 
+def multiply_from_string(input: str):
+    words = input.split()
+    numbers = [int(words[2]), int(words[5][:-1])]
+    return str(numbers[0] * numbers[1])
+
+
 def process_query(input):
     if input == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
@@ -49,6 +55,8 @@ def process_query(input):
         return find_largest_from_string(input)
     if " plus " in input:
         return add_from_string(input)
+    if " multiplied " in input:
+        return multiply_from_string(input)
     return "Unknown"
 
 
