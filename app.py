@@ -56,10 +56,14 @@ def multiply_from_string(input: str):
 def find_square_and_cube(input: str):
     words = input.split()[12:]
     numbers = [int(x[:-1]) for x in words]
+
+    output = []
+
     for num in numbers:
         if round(num ** (1/6)) == num ** (1/6):
-            return str(num)
-        
+            output.append(str(num))
+    
+    return ','.join(output)
 
 def isprime(num):
     for i in range(2,math.floor(math.sqrt(num))):
