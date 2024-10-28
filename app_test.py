@@ -27,4 +27,8 @@ def test_adding_numbers():
 def test_multiplying_numbers():
     assert process_query("What is 3 multiplied by 5?") == "15"
     
-    
+
+def test_square_checking():
+    assert process_query("Which of the following numbers is both a square and a cube: 1268, 512, 729, 3199, 1730, 196, 3886, 64?") == "64"
+
+process_query("Which of the following numbers is both a square and a cube: 1268, 512, 729, 3199, 1730, 196, 3886?")

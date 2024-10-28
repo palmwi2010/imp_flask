@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from utils import Analyzer
+import math
 app = Flask(__name__)
 
 
@@ -46,6 +47,19 @@ def multiply_from_string(input: str):
     return str(numbers[0] * numbers[1])
 
 
+def find_square_and_cube(input: str):
+    words = input.split()[12:]
+    numbers = [int(x[:-1]) for x in words]
+    print(numbers)
+    for num in numbers:
+        #print(round(math.sqrt(num)) == math.sqrt(num))
+        #print(round(math.cbrt(num)) == math.cbrt(num))
+        #print("next")
+
+        if round(math.sqrt(num)) == math.sqrt(num) and round(math.cbrt(num)) == math.cbrt(num):
+            return str(num)
+
+
 def process_query(input):
     if input == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
@@ -57,6 +71,8 @@ def process_query(input):
         return add_from_string(input)
     if " multiplied " in input:
         return multiply_from_string(input)
+    if " square " in input:
+        return find_square_and_cube(input)
     return "Unknown"
 
 
