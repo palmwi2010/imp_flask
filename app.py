@@ -35,6 +35,12 @@ def add_from_string(input: str):
     return str(numbers[0] + numbers[1])
 
 
+def minus_from_string(input: str):
+    words = input.split()
+    numbers = [int(words[2]), int(words[4][:-1])]
+    return str(numbers[0] - numbers[1])
+
+
 def find_largest_from_string(input: str):
     words = input.split()
     numbers = [int(words[8][:-1]), int(words[9][:-1]), int(words[10][:-1])]
@@ -50,12 +56,7 @@ def multiply_from_string(input: str):
 def find_square_and_cube(input: str):
     words = input.split()[12:]
     numbers = [int(x[:-1]) for x in words]
-    print(numbers)
     for num in numbers:
-        #print(round(math.sqrt(num)) == math.sqrt(num))
-        #print(round(math.cbrt(num)) == math.cbrt(num))
-        #print("next")
-
         if round(num ** (1/6)) == num ** (1/6):
             return str(num)
 
@@ -73,6 +74,8 @@ def process_query(input):
         return multiply_from_string(input)
     if " square " in input:
         return find_square_and_cube(input)
+    if " minus " in input:
+        return minus_from_string(input)
     return "Unknown"
 
 

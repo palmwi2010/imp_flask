@@ -31,4 +31,10 @@ def test_multiplying_numbers():
 def test_square_checking():
     assert process_query("Which of the following numbers is both a square and a cube: 1268, 512, 729, 3199, 1730, 196, 3886?") == "729"
 
-process_query("Which of the following numbers is both a square and a cube: 1268, 512, 729, 3199, 1730, 196, 3886?")
+
+def test_minus():
+    assert process_query("What is 14 minus 31?") == "-17"
+
+#def test_prime():
+#    assert process_query("Which of the followiung numbers are primes: 7, 10, 11, 19")
+
