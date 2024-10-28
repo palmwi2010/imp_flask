@@ -31,7 +31,7 @@ def analyse():
 def process_query(input):
     if input == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
-    if "your name" in query:
+    if "your name" in input:
         return "Will"
     return "Unknown"
 
