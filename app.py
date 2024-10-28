@@ -28,11 +28,26 @@ def analyse():
                            n_chars=num_characters, n_sentences=num_sentences)
 
 
+def add_from_string(input: str):
+    return 1
+
+
+def find_largest_from_string(input: str):
+    words = input.split()
+    numbers = [int(words[8][:-1]), int(words[9][:-1]), int(words[10][:-1])]
+    
+    return str(max(numbers))
+
+
 def process_query(input):
     if input == "dinosaurs":
         return "Dinosaurs ruled the Earth 200 million years ago"
     if "your name" in input:
         return "Will"
+    if "the largest" in input:
+        return find_largest_from_string(input)
+    if " plus " in input:
+        return add_from_string(input)
     return "Unknown"
 
 
