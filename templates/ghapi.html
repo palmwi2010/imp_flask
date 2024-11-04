@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href="../static/styles.css">
+    <title>Counter</title>
+</head>
+<body>
+	<header>
+		<h1>Test the Github API</h1>
+		<a href="/" class="header-link">Return back to the word counter!</a>
+	</header>
+	<main>
+		<h2>Check out a Github user</h2>
+            <form method="post" action="/githubapi">
+                <input type="text" placeholder="Enter Github username" name="ghusername">
+			    <button type="submit">Search for user</button>
+            </form>
+        {% if username %}
+            <h2>Showing result for Github user {{username}}</h2>
+        {% endif %}
+	</main>
+	<footer>
+		&copy; Palmwi2010 as part of Software Systems Engineering.
+	</footer>
+</body>

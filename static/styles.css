@@ -43,6 +43,12 @@ header p {
 	margin-top:10px;
 }
 
+.header-link {
+	text-align: right;
+	display: block;
+	padding-inline: 40px;
+}
+
 main {
 	width: 800px;
 	padding: 40px;

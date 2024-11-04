@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request
 from utils import Analyzer
+
 import math
+import requests
+
 app = Flask(__name__)
 
 
@@ -27,6 +30,24 @@ def analyse():
 
     return render_template("results.html", text=input_text, n_words=num_words,
                            n_chars=num_characters, n_sentences=num_sentences)
+
+
+def make_request(username):
+    response = requests.get(f"https://api.github.com/users/{username}/repos")
+    if response.status_code == 200:
+        repos = response.json()
+        for repo in repos:
+            print(repo["full_name"])
+
+
+@app.route("/githubapi", methods=["GET", "POST"])
+def githubapi():
+    if request.method == "POST":
+        username = request.form.get("ghusername")
+        make_request(username)
+        return render_template("ghapi.html", username=username)
+    
+    return render_template("ghapi.html")
 
 
 def add_from_string(input: str):
