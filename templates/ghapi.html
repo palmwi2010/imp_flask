@@ -19,6 +19,29 @@
             </form>
         {% if username %}
             <h2>Showing result for Github user {{username}}</h2>
+
+			<table>
+				<tr>
+					<th>Repo name</th>
+					<th>Last updated</th>
+					<th>URL</th>
+				</tr>
+
+				{% for row in data %}
+				<tr>
+					<td>
+						{{row['repo_name']}}
+					</td>
+					<td>
+						{{row['updated_at']}}
+					</td>
+					<td>
+						{{row['url']}}
+					</td>
+				</tr>
+				{% endfor %}
+
+			</table>
         {% endif %}
 	</main>
 	<footer>

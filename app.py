@@ -36,16 +36,30 @@ def make_request(username):
     response = requests.get(f"https://api.github.com/users/{username}/repos")
     if response.status_code == 200:
         repos = response.json()
-        for repo in repos:
-            print(repo["full_name"])
+        return repos
+    
+def make_commit_request(commit_url):
+    response = requests.get(commit_url)
+    if response.status_code == 200:
+        commit_data = response.json()
+        print(commit_data)
+
+def format_result(data):
+    result = []
+    for row in data:
+        repo_name = row["full_name"].split("/")[1]
+        make_commit_request(row["commits_url"])
+        new_dict = {"repo_name": repo_name, "updated_at": row["updated_at"], "url": row["html_url"]}
+        result.append(new_dict)
+    return result
 
 
 @app.route("/githubapi", methods=["GET", "POST"])
 def githubapi():
     if request.method == "POST":
         username = request.form.get("ghusername")
-        make_request(username)
-        return render_template("ghapi.html", username=username)
+        data = format_result(make_request(username))
+        return render_template("ghapi.html", username=username, data=data)
     
     return render_template("ghapi.html")
 
