@@ -62,7 +62,7 @@ def get_result_object(data):
         commit_data = make_commit_request(row["commits_url"])
         
         # commit data
-        commit_author = commit_data.get("commit", {}).get("author", {}).get("name",""),
+        commit_author = commit_data.get("commit", {}).get("author", {}).get("name","")
         commit_msg = commit_data.get("commit", {}).get("message","")
 
         new_dict = {"repo_name": repo_name,
