@@ -38,7 +38,8 @@ def make_request(username):
         repos = response.json()
         return repos
     return []
-    
+
+
 def make_commit_request(commit_url):
     """Returns the latest commit"""
     commit_url = commit_url.replace("{/sha}", "")
@@ -50,15 +51,19 @@ def make_commit_request(commit_url):
             return data[0]
     return {}
 
+
 def get_result_object(data):
     result = []
     for row in data[:1]:
         repo_name = row["full_name"].split("/")[1]
         commit_data = make_commit_request(row["commits_url"])
-        print(commit_data)
-        new_dict = {"repo_name": repo_name, "updated_at": row["updated_at"], "hash": commit_data["sha"],
-                    "author": commit_data["commit"]["author"]["name"], "message": commit_data["commit"]["message"],
-                    "url": row["html_url"], }
+        new_dict = {"repo_name": repo_name,
+                    "updated_at": row["updated_at"],
+                    "hash": commit_data["sha"],
+                    "author": commit_data["commit"]["author"]["name"],
+                    "message": commit_data["commit"]["message"],
+                    "url": row["html_url"],
+                    }
         result.append(new_dict)
     return result
 
@@ -69,7 +74,6 @@ def githubapi():
         username = request.form.get("ghusername")
         data = get_result_object(make_request(username))
         return render_template("ghapi.html", username=username, data=data)
-    
     return render_template("ghapi.html")
 
 
@@ -106,11 +110,11 @@ def find_square_and_cube(input: str):
     for num in numbers:
         if round(num ** (1/6)) == num ** (1/6):
             output.append(str(num))
-    
     return ', '.join(output)
 
+
 def isprime(num):
-    for i in range(2,math.floor(math.sqrt(num))):
+    for i in range(2, math.floor(math.sqrt(num))):
         if round(num/i) == num/i:
             return False
     return True
@@ -124,7 +128,7 @@ def find_primes(input: str):
     for num in numbers:
         if isprime(num):
             output.append(str(num))
-    
+
     return ', '.join(output)
 
 

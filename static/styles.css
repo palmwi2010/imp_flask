@@ -10,6 +10,11 @@ box-sizing: border-box;
 font-family: 'Roboto';
 }
 
+:root {
+	--dark-green:#1a2e05;
+	--light-green:#3f6212;
+}
+
 body {
 	height: 100vh;
 	display: flex;
@@ -21,7 +26,7 @@ header, footer {
 }
 
 header {
-	background: linear-gradient(#1a2e05, #3f6212);
+	background: linear-gradient(var(--dark-green), var(--light-green));
 	padding: 30px 0px;
 }
 
@@ -55,6 +60,7 @@ main {
 	flex-grow: 1;
 	margin: 30px auto;
 }
+
 
 .toprow {
 	display: flex;
@@ -166,10 +172,59 @@ footer {
 }
 
 /* Table style */
-th {
+th, td {
 	text-align: left;
+	padding: 1px;
+}
+
+tr:first-child {
+	background-color: var(--light-green);
+}
+
+th {
+	color: white;
 }
 
 table {
-	border-spacing: 6px;
+	margin-block: 20px;
+	width: 100%;
 }
+
+/* Github page */
+.ghmain {
+	width: 90%;
+	flex-grow: 1;
+	margin: 24px auto;
+	text-align: center;
+}
+
+.ghinput-row {
+	display: flex;
+	gap: 8px;
+	margin: 16px;
+	align-items: center;
+	justify-content: center;
+}
+
+.ghinput {
+	width: 400px;
+	line-height: 1.2rem;
+	font-size: 1.2rem;
+	padding: 1ch;
+	border-radius: 5px;
+}
+
+.ghsearch {
+	background-image: url('./assets/search.svg');
+	background-size: contain; /* Ensures the image fits inside the button */
+	width: 24px;
+	height: 24px;
+	background-color: transparent;
+	border: none; /* Removes default border, optional but may help */
+	cursor: pointer;
+  }
+
+  .result-content {
+	margin: 30px;
+  }
+
