@@ -6,6 +6,7 @@ import requests
 
 app = Flask(__name__)
 
+MAX_REPOS = 10
 
 @app.route("/")
 def hello_world():
@@ -54,14 +55,21 @@ def make_commit_request(commit_url):
 
 def get_result_object(data):
     result = []
+    data = data[:MAX_REPOS]
+
     for row in data:
         repo_name = row["full_name"].split("/")[1]
         commit_data = make_commit_request(row["commits_url"])
+        
+        # commit data
+        commit_author = commit_data.get("commit", {}).get("author", {}).get("name",""),
+        commit_msg = commit_data.get("commit", {}).get("message","")
+
         new_dict = {"repo_name": repo_name,
                     "updated_at": row["updated_at"],
-                    "hash": commit_data["sha"],
-                    "author": commit_data["commit"]["author"]["name"],
-                    "message": commit_data["commit"]["message"],
+                    "hash": commit_data.get("sha", ""),
+                    "author": commit_author,
+                    "message": commit_msg,
                     "url": row["html_url"],
                     }
         result.append(new_dict)
