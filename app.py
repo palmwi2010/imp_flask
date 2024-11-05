@@ -54,7 +54,7 @@ def make_commit_request(commit_url):
 
 def get_result_object(data):
     result = []
-    for row in data[:1]:
+    for row in data:
         repo_name = row["full_name"].split("/")[1]
         commit_data = make_commit_request(row["commits_url"])
         new_dict = {"repo_name": repo_name,
