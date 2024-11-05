@@ -17,6 +17,7 @@
                 <input type="text" placeholder="Enter Github username" name="ghusername">
 			    <button type="submit">Search for user</button>
             </form>
+			
         {% if username %}
             <h2>Showing result for Github user {{username}}</h2>
 
@@ -24,6 +25,9 @@
 				<tr>
 					<th>Repo name</th>
 					<th>Last updated</th>
+					<th>Last commit hash</th>
+					<th>Commit author</th>
+					<th>Commit message</th>
 					<th>URL</th>
 				</tr>
 
@@ -34,6 +38,15 @@
 					</td>
 					<td>
 						{{row['updated_at']}}
+					</td>
+					<td>
+						{{row['hash']}}
+					</td>
+					<td>
+						{{row['author']}}
+					</td>
+					<td>
+						{{row['message']}}
 					</td>
 					<td>
 						{{row['url']}}

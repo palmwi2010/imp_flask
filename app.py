@@ -37,19 +37,28 @@ def make_request(username):
     if response.status_code == 200:
         repos = response.json()
         return repos
+    return []
     
 def make_commit_request(commit_url):
+    """Returns the latest commit"""
+    commit_url = commit_url.replace("{/sha}", "")
+    print(commit_url)
     response = requests.get(commit_url)
     if response.status_code == 200:
-        commit_data = response.json()
-        print(commit_data)
+        data = response.json()
+        if len(data) > 0:
+            return data[0]
+    return {}
 
-def format_result(data):
+def get_result_object(data):
     result = []
-    for row in data:
+    for row in data[:1]:
         repo_name = row["full_name"].split("/")[1]
-        make_commit_request(row["commits_url"])
-        new_dict = {"repo_name": repo_name, "updated_at": row["updated_at"], "url": row["html_url"]}
+        commit_data = make_commit_request(row["commits_url"])
+        print(commit_data)
+        new_dict = {"repo_name": repo_name, "updated_at": row["updated_at"], "hash": commit_data["sha"],
+                    "author": commit_data["commit"]["author"]["name"], "message": commit_data["commit"]["message"],
+                    "url": row["html_url"], }
         result.append(new_dict)
     return result
 
@@ -58,7 +67,7 @@ def format_result(data):
 def githubapi():
     if request.method == "POST":
         username = request.form.get("ghusername")
-        data = format_result(make_request(username))
+        data = get_result_object(make_request(username))
         return render_template("ghapi.html", username=username, data=data)
     
     return render_template("ghapi.html")
