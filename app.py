@@ -65,12 +65,22 @@ def get_result_object(data):
         commit_author = commit_data.get("commit", {}).get("author", {}).get("name","")
         commit_msg = commit_data.get("commit", {}).get("message","")
 
+        repo_language = row.get("language", "N/A")
+        stars = row.get("stargazers_count", 0)
+        forks = row.get("forks_count", 0)
+        open_issues = row.get("open_issues_count", 0)
+        #print(row["html_url"])
+
         new_dict = {"repo_name": repo_name,
                     "updated_at": row["updated_at"],
                     "hash": commit_data.get("sha", ""),
                     "author": commit_author,
                     "message": commit_msg,
                     "url": row["html_url"],
+                    "language": repo_language,
+                    "stars": stars,
+                    "forks": forks,
+                    "open_issues": open_issues
                     }
         result.append(new_dict)
     return result
